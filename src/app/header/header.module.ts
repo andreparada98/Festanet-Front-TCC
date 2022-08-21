@@ -9,8 +9,7 @@ import {CardModule} from 'primeng/card';
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    ButtonModule,
-    CardModule
+    ButtonModule
   ],
   exports:[HeaderComponent]
 })
