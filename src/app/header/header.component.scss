@@ -1,0 +1,29 @@
+.container {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    background-color: white;
+    border-bottom: none;
+    width: 100%;
+    box-shadow: 1px 10px 10px #c3d1ee96;
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    max-height: 70px;
+  }
+
+  .Login {
+    padding-right: 20px;
+  }
+
+#logo{
+    margin: 0px;
+    font-size: 40px;
+    padding-top: 8px;
+    padding-left: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#logoNet{
+    color: red;
+}
