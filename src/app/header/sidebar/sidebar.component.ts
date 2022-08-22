@@ -6,16 +6,29 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent{
 
-  constructor() { }
+  items: MenuItem[] = []
 
-  items: MenuItem[] | undefined;
-  
-  ngOnInit(): void {
-    this.items = [{
-      label:'Olá'
-    }]
-  }
+  ngOnInit() {
+      this.items = [
+          {
+             label:'Criar Evento',
+             icon:'pi pi-fw pi-file'
+          },
+          {
+             label:'Parceiros',
+             icon:'pi pi-fw pi-pencil',
+          },
+          {
+             label:'Usuários',
+             icon:'pi pi-fw pi-user',
+          },
+          {
+             label:'Eventos',
+             icon:'pi pi-fw pi-calendar',
+          },
+      ];
+  }    
 
 }
