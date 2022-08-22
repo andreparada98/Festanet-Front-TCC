@@ -1,19 +1,19 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px;
-    background-color: white;
-    border-bottom: none;
-    width: 100%;
-    box-shadow: 1px 10px 10px #c3d1ee96;
-    z-index: 2;
-    position: fixed;
-    top: 0px;
-    max-height: 70px;
-  }
+  top: 0;
+  z-index: 79;
+  position: fixed;
+  display: flex;
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  box-sizing: border-box;
+  background-color: #17212f;
+  box-shadow: 1px 10px 10px #c3d1ee96;
+}
 
-  .Login {
+.Login {
     padding-right: 20px;
   }
 
@@ -24,7 +24,24 @@
     padding-left: 20px;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
 }
+
 #logoNet{
-    color: red;
+    color: #ffcd2e;
+}
+
+@media (max-width: 700px) {
+  .menus{
+    display: none;
+  }
+  .Login{
+    display: none;
+  }
+}
+
+@media (min-width: 700px){
+  app-sidebar{
+    display: none;
+  }
 }
