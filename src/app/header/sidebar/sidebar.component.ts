@@ -13,12 +13,12 @@ export class SidebarComponent{
   ngOnInit() {
       this.items = [
           {
-             label:'Criar Evento',
-             icon:'pi pi-fw pi-file'
+             label:'Crie seu Evento',
+             icon:'pi pi-plus-circle'
           },
           {
              label:'Parceiros',
-             icon:'pi pi-fw pi-pencil',
+             icon:'pi pi-globe',
           },
           {
              label:'Usuários',
@@ -28,6 +28,11 @@ export class SidebarComponent{
              label:'Eventos',
              icon:'pi pi-fw pi-calendar',
           },
+          {
+            label:'Logar',
+            icon: 'pi pi-upload',
+            routerLink: ''
+          }
       ];
   }    
 
