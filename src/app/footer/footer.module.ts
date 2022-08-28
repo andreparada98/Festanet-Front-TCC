@@ -4,6 +4,7 @@ import { FooterComponent } from './footer.component';
 import { ButtonModule } from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -16,7 +17,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     CommonModule,
     ButtonModule,
     InputTextModule,
-    InputTextareaModule
+    InputTextareaModule,
+    CardModule
   ],
   exports:[
     FooterComponent
