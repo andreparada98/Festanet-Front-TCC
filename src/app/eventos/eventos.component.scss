@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .footer{
+    display: flex;
+    padding: 1rem;
+    margin-top: auto;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer img {
+    width: 3rem;
+  }

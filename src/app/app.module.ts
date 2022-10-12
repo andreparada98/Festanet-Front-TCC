@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { EventosModule } from './eventos/eventos.module';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { FooterModule } from './footer/footer.module';
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    ButtonModule,
+    CardModule,
+    EventosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
