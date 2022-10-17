@@ -8,6 +8,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardModule,
     InputTextModule,
     ButtonModule,
-    InputMaskModule,
+    CalendarModule,
     InputNumberModule,
     HttpClientModule,
     ReactiveFormsModule

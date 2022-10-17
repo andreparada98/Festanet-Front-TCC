@@ -12,6 +12,7 @@ import { festaModel } from './cria-evento.model';
 export class CriaEventoComponent implements OnInit {
 item: festaModel
 form: FormGroup
+apiUrl: string = 'http://localhost:3000'
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -37,7 +38,15 @@ form: FormGroup
   salvar(){
     this.item = Object.assign(this.item, this.form.value)
     console.log(this.item)
-   //this.http.post
+    this.http.post<festaModel>(`${this.apiUrl}/festas`, this.item).subscribe(res =>{
+      console.log(res)
+    },
+    erro => {
+      if(erro.status == 400){
+        console.log(erro)
+      }
+    }
+    )
   }
 
   voltar(){
