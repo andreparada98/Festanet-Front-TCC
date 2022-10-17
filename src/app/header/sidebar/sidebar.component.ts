@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,13 +9,18 @@ import { MenuItem } from 'primeng/api';
 })
 export class SidebarComponent{
 
+   constructor(
+      private router: Router
+   ){}
+
   items: MenuItem[] = []
 
   ngOnInit() {
       this.items = [
           {
              label:'Crie seu Evento',
-             icon:'pi pi-plus-circle'
+             icon:'pi pi-plus-circle',
+             command: () => this.goTo('cria-evento')
           },
           {
              label:'Parceiros',
@@ -35,5 +41,9 @@ export class SidebarComponent{
           }
       ];
   }    
+
+    goTo(rota:string){
+    this.router.navigate([rota])
+  }
 
 }

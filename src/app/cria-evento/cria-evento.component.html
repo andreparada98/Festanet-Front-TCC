@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="espacamentoTitle">Crie Seu Evento</h1>
+    <p-card class="grid p-fluid">
+        <form  [formGroup]="form" autocomplete="off" >
+            <div>
+                <span class="p-float-label">
+                    <input id="float-input" type="text" formControlName="nome_festa" pInputText>
+                    <label for="float-input">Nome do Evento</label>
+                </span>
+            </div>
+            <div class="espacamentoInputs">
+                <span class="p-float-label">
+                    <p-inputMask id="float-input" mask="99/99/9999" formControlName="data_festa" slotChar="mm/dd/yyyy"></p-inputMask>
+                    <label for="float-input">Data</label>
+                </span>
+            </div>
+            <div class="espacamentoInputs">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" formControlName="organizador" pInputText>
+                    <label for="float-input">Organizador</label>
+                </span>
+            </div>
+            <div class="espacamentoInputs">
+                <span class="p-float-label">
+                    <p-inputNumber id="float-input" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" formControlName="qtd_ingressos"></p-inputNumber>
+                    <label for="float-input">Quantidade máxima de ingressos</label>
+                </span>
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <div class="buttons-row">
+                <button type="submit" (click)="salvar()" pButton  class="p-button-success" label="Salvar" icon="pi pi-check"></button>
+                <button type="button" pButton (click)="voltar()" class="p-button-danger" label="Voltar" icon="pi pi-times"></button>
+            </div>
+        </ng-template>
+    </p-card>
+
+</div>

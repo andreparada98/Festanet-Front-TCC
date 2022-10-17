@@ -1,5 +1,6 @@
 const rotas = {
-    home: ''
+    home: '',
+    criaEvento: 'cria-evento'
   };
   
   export { rotas };

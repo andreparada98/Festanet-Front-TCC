@@ -9,12 +9,14 @@ import { FooterModule } from './footer/footer.module';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { EventosModule } from './eventos/eventos.module';
+import { CriaEventoComponent } from './cria-evento/cria-evento.component';
+import { CriaEventoModule } from './cria-evento/cria-evento.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { EventosModule } from './eventos/eventos.module';
     FooterModule,
     ButtonModule,
     CardModule,
-    EventosModule
+    EventosModule,
+    CriaEventoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
