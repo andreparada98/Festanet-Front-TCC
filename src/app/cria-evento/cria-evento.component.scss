@@ -3,6 +3,7 @@
     flex-direction: column;
     padding-top: 3rem;
     color: white;
+    margin: 0 3rem 0 3rem;
   }
 
   .espacamentoInputs{
@@ -15,7 +16,12 @@
 
   .buttons-row{
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .botao{
+    width: 30rem;
   }
 
   .p-button.p-button-sm {
