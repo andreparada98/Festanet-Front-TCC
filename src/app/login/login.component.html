@@ -1,3 +1,35 @@
 <div class="container">
-   AOOOBA MEU BOM
+  <p-card class="loginCard">
+    <form [formGroup]="form" autocomplete="off">
+      <div>
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            formControlName="email"
+            pInputText
+          />
+          <label for="float-input">E-mail</label>
+        </span>
+      </div>
+      <div class="espacamentoInputs">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            formControlName="password"
+            pInputText
+          />
+          <label for="float-input">Senha</label>
+        </span>
+      </div>
+    </form>
+    <button
+      pButton
+      label="Voltar"
+      (click)="voltar()"
+      class="p-button-danger"
+    ></button>
+    <button pButton label="Entrar"></button>
+  </p-card>
 </div>

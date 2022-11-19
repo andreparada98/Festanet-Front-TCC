@@ -12,6 +12,10 @@ import { EventosModule } from './eventos/eventos.module';
 import { CriaEventoComponent } from './cria-evento/cria-evento.component';
 import { CriaEventoModule } from './cria-evento/cria-evento.module';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import { LoginComponent } from './login/login.component';
     ButtonModule,
     CardModule,
     EventosModule,
-    CriaEventoModule
+    CriaEventoModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputNumberModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,7 +37,7 @@ export class SidebarComponent{
           {
             label:'Logar',
             icon: 'pi pi-upload',
-            routerLink: ''
+            command: () => this.goTo('login')
           }
       ];
   }    
