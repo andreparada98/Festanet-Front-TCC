@@ -11,12 +11,14 @@ import { CardModule } from 'primeng/card';
 import { EventosModule } from './eventos/eventos.module';
 import { CriaEventoComponent } from './cria-evento/cria-evento.component';
 import { CriaEventoModule } from './cria-evento/cria-evento.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { rotas } from 'src/utils/routes';
@@ -9,6 +10,9 @@ const routes: Routes = [{
 },
 {
   path: rotas.criaEvento, component: CriaEventoComponent
+},
+{
+  path: rotas.login, component: LoginComponent
 }
 ];
 
