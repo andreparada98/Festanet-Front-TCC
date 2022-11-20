@@ -1,13 +1,14 @@
 <div class="container">
+  <h1 class="espacamentoTitle">Login</h1>
   <p-card class="loginCard">
-    <form [formGroup]="form" autocomplete="off">
+    <form [formGroup]="form" autocomplete="off" class="teste">
       <div>
         <span class="p-float-label">
           <input
             id="float-input"
             type="text"
             formControlName="email"
-            pInputText
+            pInputText email
           />
           <label for="float-input">E-mail</label>
         </span>
@@ -16,7 +17,7 @@
         <span class="p-float-label">
           <input
             id="float-input"
-            type="text"
+            type="password"
             formControlName="password"
             pInputText
           />
@@ -30,6 +31,10 @@
       (click)="voltar()"
       class="p-button-danger"
     ></button>
-    <button pButton label="Entrar"></button>
+    <button
+     pButton
+     label="Entrar"
+     class="p-button-danger2 p-button-success"
+     ></button>
   </p-card>
 </div>

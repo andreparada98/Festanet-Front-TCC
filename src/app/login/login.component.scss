@@ -1,13 +1,33 @@
 .container {
+    padding-top: 5rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    padding-top: 3rem;
+    color: #fff
   }
 
   .loginCard{
     margin: 0 2rem 0 2rem;
   }
-
   .espacamentoInputs{
+    text-align: justify;
     padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  .p-button-danger{
+    margin: 0 20px 0 10px;
+    border-radius: 10px;
+  }
+  .p-button-danger2{
+    margin: 0 20px 0 20px;
+    border-radius: 10px;
+  }
+  .espacamentoTitle{
+    padding-bottom: 1rem;
+  }
+
+  .teste {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
