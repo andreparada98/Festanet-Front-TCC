@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { rotas } from 'src/utils/routes';
 import { CriaEventoComponent } from './cria-evento/cria-evento.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 const routes: Routes = [{
   path:rotas.home, component: HomePageComponent
@@ -13,7 +14,10 @@ const routes: Routes = [{
 },
 {
   path: rotas.login, component: LoginComponent
-}
+},
+{
+  path: rotas.criarConta, component: CreateAccountComponent
+},
 ];
 
 @NgModule({

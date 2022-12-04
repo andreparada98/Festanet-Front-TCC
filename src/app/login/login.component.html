@@ -4,37 +4,26 @@
     <form [formGroup]="form" autocomplete="off" class="teste">
       <div>
         <span class="p-float-label">
-          <input
-            id="float-input"
-            type="text"
-            formControlName="email"
-            pInputText email
-          />
+          <input id="float-input" type="text" formControlName="email" pInputText email />
           <label for="float-input">E-mail</label>
         </span>
       </div>
       <div class="espacamentoInputs">
         <span class="p-float-label">
-          <input
-            id="float-input"
-            type="password"
-            formControlName="password"
-            pInputText
-          />
+          <input id="float-input" type="password" formControlName="password" pInputText />
           <label for="float-input">Senha</label>
         </span>
       </div>
     </form>
-    <button
-      pButton
-      label="Voltar"
-      (click)="voltar()"
-      class="p-button-danger"
-    ></button>
-    <button
-     pButton
-     label="Entrar"
-     class="p-button-danger2 p-button-success"
-     ></button>
+    <footer>
+      <div class="buttons">
+        <button pButton label="Voltar" (click)="redirect('')" class="p-button-danger"></button>
+        <button pButton label="Entrar" (click)="entrar()" class="p-button-danger2 p-button-success"
+          [disabled]="submitted || !form.valid"></button>
+      </div>
+      <p class="footerAccount">
+        Não tem uma conta? <p-button label="crie aqui" styleClass="p-button-link" (click)="redirect('criar-conta')"></p-button>
+      </p>
+    </footer>
   </p-card>
 </div>

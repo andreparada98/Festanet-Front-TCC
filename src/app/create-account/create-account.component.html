@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 class="espacamentoTitle">Crie Sua Conta</h1>
+    <p-card class="grid p-fluid">
+        <form  [formGroup]="form" autocomplete="off" >
+            <div>
+                <span class="p-float-label">
+                    <input id="float-input" type="email" formControlName="email" pInputText>
+                    <label for="float-input">Email</label>
+                </span>
+            </div>
+    
+            <div class="espacamentoInputs">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" formControlName="name" pInputText>
+                    <label for="float-input">Nome</label>
+                </span>
+            </div>
+            <div class="espacamentoInputs">
+                <span class="p-float-label">
+                    <input id="float-input" type="password" formControlName="password" pInputText>
+                    <label for="float-input">Senha</label>
+                </span>
+            </div>
+
+        </form>
+        <ng-template pTemplate="footer">
+            <div class="buttons-row">
+                    <button type="submit" (click)="salvar()" pButton  class="p-button-success botao" label="Salvar" icon="pi pi-check"></button>
+                    <button type="button" pButton (click)="voltar()" class="p-button-danger botao" label="Voltar" icon="pi pi-times"></button>
+            </div>
+        </ng-template>
+    </p-card>
+
+</div>

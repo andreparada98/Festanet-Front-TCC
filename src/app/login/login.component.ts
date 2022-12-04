@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,10 +12,14 @@ import { loginModel } from './login.model';
 export class LoginComponent implements OnInit {
   form: FormGroup
   item: loginModel
+  submitted = false;
+  apiUrl: string = 'http://localhost:3000'
+
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private http: HttpClient
   ) { 
     this.item = new loginModel()
   }
@@ -30,7 +35,23 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  voltar(){
-    this.router.navigate([''])
+  redirect(rota: string){
+    this.router.navigate([rota])
+  }
+
+  entrar(){
+    this.submitted = true 
+    this.item = Object.assign(this.item, this.form.value)
+    if(this.form.invalid){
+      return
+    }
+    this.http.post<loginModel>(`${this.apiUrl}/auth`, this.item).subscribe(res=> {
+      delete res.password
+      localStorage.setItem('user', JSON.stringify(res))
+      this.router.navigate([''])
+
+      return res.email
+    })
+
   }
 }

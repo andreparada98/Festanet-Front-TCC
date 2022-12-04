@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    color: white;
+    margin: 0 3rem 0 3rem;
+  }
+
+  .espacamentoInputs{
+    padding-top: 2rem;
+  }
+  
+  .espacamentoTitle{
+    padding-bottom: 1rem;
+  }
+
+  .buttons-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .botao{
+    width: 30rem;
+  }
+
+  .p-button.p-button-sm {
+    padding: 0.1rem 0.2rem;
+  }
