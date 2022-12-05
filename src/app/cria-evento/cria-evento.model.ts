@@ -1,4 +1,5 @@
 export class festaModel{
+   id:   number;
    nome_festa: string;
    data_festa: Date;
    organizador: string;

@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { festaModel } from './cria-evento.model';
+import { fotoModel } from './foto-evento.model';
 
 @Component({
   selector: 'app-cria-evento',
@@ -13,13 +15,19 @@ import { festaModel } from './cria-evento.model';
 export class CriaEventoComponent implements OnInit {
 item: festaModel
 form: FormGroup
-apiUrl: string = 'http://localhost:3000'
+photoUrl: string 
+uploadedFiles: any[] = [];
+apiUrl = environment.api
+fotoFesta: fotoModel
+
+
   constructor(
     private router: Router,
     private http: HttpClient,
     private formBuilder: FormBuilder,
   ) {
     this.item = new festaModel()
+    this.fotoFesta = new fotoModel()
    }
 
   ngOnInit(): void {
@@ -41,18 +49,36 @@ apiUrl: string = 'http://localhost:3000'
     console.log(currentUser)
     this.item = Object.assign(this.item, this.form.value, {"organizador_id":currentUser.id})
     console.log(this.item)
-    this.http.post<festaModel>(`${environment.api}/festas`, this.item).subscribe(res =>{
+    this.http.post<festaModel>(`${environment.api}/festas`, this.item).pipe(
+      switchMap(res => {
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Intercept': 'false'
+          })
+        }
+        let formData = new FormData();
+        formData.set('file', this.photoUrl);
+        formData.set("festa_id", String(res.id))
+        return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta`,formData, httpOptions)
+      })
+    ).subscribe(res => {
       console.log(res)
-    },
-    erro => {
-      if(erro.status == 400){
-        console.log(erro)
-      }
-    }
-    )
+    })
   }
 
   voltar(){
     this.router.navigate([''])
   }
+
+  onUpload(event) {
+    console.log("Entrou")
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+      }
+    }
+    
+    handleFileSelect(event: any) {
+      this.uploadedFiles = event.currentFiles;
+      this.photoUrl = event.currentFiles[0].objectURL
+    }
 }

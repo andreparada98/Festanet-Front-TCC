@@ -1,7 +1,19 @@
 <div class="container">
     <h1 class="espacamentoTitle">Crie Seu Evento</h1>
     <p-card class="grid p-fluid">
-        <form  [formGroup]="form" autocomplete="off" >
+        <div class="pictureEvent">
+            <h5>Foto do Evento</h5>
+            <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" accept="image/*"
+                maxFileSize="8000000" [showUploadButton]="false" (onSelect)="handleFileSelect($event)"
+                [showCancelButton]="false" chooseLabel="Selecionar Fotos">
+                <ng-template pTemplate="file">
+                    <div *ngIf="uploadedFiles.length">
+                        <img [src]=photoUrl alt="teste" class="photo-evento">
+                    </div>
+                </ng-template>
+            </p-fileUpload>
+        </div>
+        <form [formGroup]="form" autocomplete="off">
             <div>
                 <span class="p-float-label">
                     <input id="float-input" type="text" formControlName="nome_festa" pInputText>
@@ -10,13 +22,15 @@
             </div>
             <div class="espacamentoInputs">
                 <span class="p-float-label">
-                    <p-calendar  id="float-input" formControlName="data_festa" [showIcon]="true" inputId="icon"></p-calendar>
+                    <p-calendar id="float-input" formControlName="data_festa" [showIcon]="true" inputId="icon">
+                    </p-calendar>
                     <label for="float-input">Data</label>
                 </span>
             </div>
             <div class="espacamentoInputs">
                 <span class="p-float-label">
-                    <p-inputNumber id="float-input" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" formControlName="qtd_ingressos"></p-inputNumber>
+                    <p-inputNumber id="float-input" mode="decimal" [showButtons]="true" inputId="minmax-buttons"
+                        [min]="0" formControlName="qtd_ingressos"></p-inputNumber>
                     <label for="float-input">Quantidade máxima de ingressos</label>
                 </span>
             </div>
@@ -29,8 +43,10 @@
         </form>
         <ng-template pTemplate="footer">
             <div class="buttons-row">
-                    <button type="submit" (click)="salvar()" pButton  class="p-button-success botao" label="Salvar" icon="pi pi-check"></button>
-                    <button type="button" pButton (click)="voltar()" class="p-button-danger botao" label="Voltar" icon="pi pi-times"></button>
+                <button type="submit" (click)="salvar()" pButton class="p-button-success botao" label="Salvar"
+                    icon="pi pi-check"></button>
+                <button type="button" pButton (click)="voltar()" class="p-button-danger botao" label="Voltar"
+                    icon="pi pi-times"></button>
             </div>
         </ng-template>
     </p-card>

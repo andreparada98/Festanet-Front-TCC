@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     InputNumberModule,
     HttpClientModule,
     ReactiveFormsModule,
-    InputTextareaModule
+    InputTextareaModule,
+    FileUploadModule
   ],
   exports: [
     CriaEventoComponent

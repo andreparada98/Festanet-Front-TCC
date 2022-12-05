@@ -4,6 +4,7 @@
     padding-top: 3rem;
     color: white;
     margin: 0 3rem 0 3rem;
+    max-width: 100vw;
   }
 
   .espacamentoInputs{
@@ -26,4 +27,11 @@
 
   .p-button.p-button-sm {
     padding: 0.1rem 0.2rem;
+  }
+
+  .photo-evento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50vw;
   }
