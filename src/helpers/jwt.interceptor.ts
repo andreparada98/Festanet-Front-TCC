@@ -10,13 +10,22 @@ export class JwtInterceptor implements HttpInterceptor {
         // add authorization header with jwt token if available
         const currentUser = JSON.parse(localStorage.getItem('user'))
         if (currentUser && currentUser.token) {
-            request = request.clone({
-                setHeaders: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${currentUser.token}`,
-                    'License-Type': 'APP_WEB'
-                }
-            });
+            let contentType = 'application/json';
+
+            if (String(request.headers.get('Intercept')).includes('false')) {
+                request = request.clone({                    
+                    setHeaders: {
+                        Authorization: `Bearer ${currentUser.token}`,
+                    }
+                }); 
+            } else if (!request.headers.get('Content-Type')) {
+                request = request.clone({                    
+                    setHeaders: {
+                        'Content-Type': contentType,
+                        Authorization: `Bearer ${currentUser.token}`,
+                    }
+                });                    
+            }
         }
 
         return next.handle(request);

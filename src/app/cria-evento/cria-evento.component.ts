@@ -15,7 +15,8 @@ import { fotoModel } from './foto-evento.model';
 export class CriaEventoComponent implements OnInit {
 item: festaModel
 form: FormGroup
-photoUrl: string 
+photoUrl: string
+photo: any;
 uploadedFiles: any[] = [];
 apiUrl = environment.api
 fotoFesta: fotoModel
@@ -53,13 +54,13 @@ fotoFesta: fotoModel
       switchMap(res => {
         const httpOptions = {
           headers: new HttpHeaders({
-            'Intercept': 'false'
+            'Intercept': 'false',
+            "festa_id": String(res.id),
           })
         }
         let formData = new FormData();
-        formData.set('file', this.photoUrl);
-        formData.set("festa_id", String(res.id))
-        return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta`,formData, httpOptions)
+        formData.set('file', this.photo, this.photo.name);
+        return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta/`,formData, httpOptions)
       })
     ).subscribe(res => {
       console.log(res)
@@ -79,6 +80,7 @@ fotoFesta: fotoModel
     
     handleFileSelect(event: any) {
       this.uploadedFiles = event.currentFiles;
-      this.photoUrl = event.currentFiles[0].objectURL
+      this.photo = event.currentFiles[0];
+      this.photoUrl = event.currentFiles[0].objectURL;
     }
 }
