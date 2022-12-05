@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { festaModel } from '../cria-evento/cria-evento.model';
 
 @Component({
@@ -18,7 +19,7 @@ export class EventosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.http.get<festaModel>(`${this.apiUrl}/festas`).subscribe(res =>{
+    this.http.get<festaModel>(`${environment.api}/festas`).subscribe(res =>{
       this.festas = res
       console.log(this.festas)
     },

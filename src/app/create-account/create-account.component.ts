@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { accountModel } from './account.model';
 
 @Component({
@@ -39,7 +40,7 @@ export class CreateAccountComponent implements OnInit {
   salvar(){
     this.item = Object.assign(this.item, this.form.value)
     console.log(this.item)
-    this.http.post<accountModel>(`${this.apiUrl}/users`, this.item).subscribe(res =>{
+    this.http.post<accountModel>(`${environment.api}/users`, this.item).subscribe(res =>{
       console.log(res)
       this.router.navigate([''])
     },

@@ -9,6 +9,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {CalendarModule} from 'primeng/calendar';
     CalendarModule,
     InputNumberModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextareaModule
   ],
   exports: [
     CriaEventoComponent

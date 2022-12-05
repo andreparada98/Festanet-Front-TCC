@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class HeaderComponent {
+export class HeaderService {
   usuarioLogado = false;
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { 
     const currentUser = JSON.parse(localStorage.getItem('user'))
     if(currentUser && currentUser.token){
       this.usuarioLogado = true
     }
   }
+  
 
   goTo(rota:string){
     if(rota == 'cria-evento'){
@@ -38,4 +37,5 @@ export class HeaderComponent {
     this.router.navigate([''])
 
   }
+
 }

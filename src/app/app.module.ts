@@ -17,6 +17,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateAccountModule } from './create-account/create-account.module';
 import { JwtInterceptor } from 'src/helpers/jwt.interceptor';
+import { HeaderService } from './header/header.service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { JwtInterceptor } from 'src/helpers/jwt.interceptor';
     HttpClientModule,
     CreateAccountModule
   ],
-  providers: [
+  providers: [HeaderService,
     {
       provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
     }

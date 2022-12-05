@@ -16,14 +16,14 @@
             </div>
             <div class="espacamentoInputs">
                 <span class="p-float-label">
-                    <input id="float-input" type="text" formControlName="organizador" pInputText>
-                    <label for="float-input">Organizador</label>
+                    <p-inputNumber id="float-input" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" formControlName="qtd_ingressos"></p-inputNumber>
+                    <label for="float-input">Quantidade máxima de ingressos</label>
                 </span>
             </div>
             <div class="espacamentoInputs">
                 <span class="p-float-label">
-                    <p-inputNumber id="float-input" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" formControlName="qtd_ingressos"></p-inputNumber>
-                    <label for="float-input">Quantidade máxima de ingressos</label>
+                    <textarea id="float-input" formControlName="description" pInputTextarea></textarea>
+                    <label for="float-input">Descrição do Evento</label>
                 </span>
             </div>
         </form>

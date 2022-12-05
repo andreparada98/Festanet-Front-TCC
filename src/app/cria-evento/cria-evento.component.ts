@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { festaModel } from './cria-evento.model';
 
 @Component({
@@ -29,16 +30,18 @@ apiUrl: string = 'http://localhost:3000'
     this.form = this.formBuilder.group({
       nome_festa: [this.item.nome_festa, [Validators.required, Validators.minLength(3)]],
       data_festa: [this.item.data_festa, [Validators.required, Validators.minLength(3)]],
-      organizador: [this.item.organizador, Validators.required],
       qtd_ingressos: [this.item.qtd_ingressos, [Validators.required]],
+      description: [this.item.description, [Validators.required,Validators.maxLength(200)]]
     });
   }
 
 
   salvar(){
-    this.item = Object.assign(this.item, this.form.value)
+    const currentUser = JSON.parse(localStorage.getItem('user'))
+    console.log(currentUser)
+    this.item = Object.assign(this.item, this.form.value, {"organizador_id":currentUser.id})
     console.log(this.item)
-    this.http.post<festaModel>(`${this.apiUrl}/festas`, this.item).subscribe(res =>{
+    this.http.post<festaModel>(`${environment.api}/festas`, this.item).subscribe(res =>{
       console.log(res)
     },
     erro => {

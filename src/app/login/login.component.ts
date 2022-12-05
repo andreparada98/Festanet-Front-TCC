@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { HeaderService } from '../header/header.service';
 import { loginModel } from './login.model';
 
 @Component({
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private headerService: HeaderService
   ) { 
     this.item = new loginModel()
   }
@@ -45,9 +48,10 @@ export class LoginComponent implements OnInit {
     if(this.form.invalid){
       return
     }
-    this.http.post<loginModel>(`${this.apiUrl}/auth`, this.item).subscribe(res=> {
+    this.http.post<loginModel>(`${environment.api}/auth`, this.item).subscribe(res=> {
       delete res.password
       localStorage.setItem('user', JSON.stringify(res))
+      this.headerService.usuarioLogado = true
       this.router.navigate([''])
 
       return res.email
