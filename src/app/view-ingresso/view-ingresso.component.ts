@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-ingresso.component.scss']
 })
 export class ViewIngressoComponent implements OnInit {
+  public qrCodeStr: string = null;
 
-  constructor() { }
+  constructor() {
+    this.qrCodeStr = 'Some string to generate QR Code';
+   }
 
   ngOnInit(): void {
   }

@@ -28,6 +28,11 @@ export class SidebarComponent{
              command: () => this.goTo('criar-conta')
           },
           {
+             label:'Visualizar Ingressos',
+             icon:'pi pi-ticket',
+             command: () => this.goTo('view-ingresso')
+          },
+          {
              label:'Eventos',
              icon:'pi pi-fw pi-calendar',
              command: () => this.goTo('')

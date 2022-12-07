@@ -1,3 +1,18 @@
 <div class="container">
-    view-ingresso works!
+    <p-card>
+        <ng-template pTemplate="header">
+            <qrcode [qrdata]="'http://tccfestanet.tech/'" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+        </ng-template>
+        <ng-template pTemplate="contend">
+            <p>
+                Festa: Festa do André
+            </p> 
+            <p>
+                Data: 19/12/2022
+            </p>
+            <p>
+                Descrição: Uma festa muito bacana!
+            </p>
+        </ng-template>
+    </p-card>
 </div>

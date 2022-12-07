@@ -19,14 +19,15 @@ export class HeaderComponent {
   }
 
   goTo(rota:string){
-    if(rota == 'cria-evento'){
+    if(rota == 'cria-evento' || rota == 'view-ingresso'){
       const currentUser = JSON.parse(localStorage.getItem('user'))
       if(currentUser && currentUser.token){
         this.router.navigate([rota])
       } else {
         this.router.navigate(['/login'])
       }
-    } else {
+    } 
+    else {
       this.router.navigate([rota])
 
     }
