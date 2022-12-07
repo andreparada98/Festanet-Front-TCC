@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventosComponent } from './eventos.component';
-import { CardModule } from 'primeng/card';
+import { ViewEventoComponent } from './view-evento.component';
+import { ViewEventoService } from './view-evento.service';
 import { ButtonModule } from 'primeng/button';
-import { ViewEventoService } from '../view-evento/view-evento.service';
+import { CardModule } from 'primeng/card';
 
 
 
 @NgModule({
   declarations: [
-    EventosComponent
+    ViewEventoComponent
   ],
   imports: [
     CommonModule,
     CardModule,
     ButtonModule
   ],
-  exports:[EventosComponent],
-  providers: [
+  providers:[
     ViewEventoService
   ]
 })
-export class EventosModule { }
+export class ViewEventoModule {}

@@ -23,16 +23,14 @@ export class SidebarComponent{
              command: () => this.goTo('cria-evento')
           },
           {
-             label:'Parceiros',
-             icon:'pi pi-globe',
-          },
-          {
-             label:'Usuários',
+             label:'Crie sua conta',
              icon:'pi pi-fw pi-user',
+             command: () => this.goTo('criar-conta')
           },
           {
              label:'Eventos',
              icon:'pi pi-fw pi-calendar',
+             command: () => this.goTo('')
           },
           {
             label:'Logar',

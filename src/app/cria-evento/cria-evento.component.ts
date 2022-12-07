@@ -49,18 +49,16 @@ fotoFesta: fotoModel
     const currentUser = JSON.parse(localStorage.getItem('user'))
     console.log(currentUser)
     this.item = Object.assign(this.item, this.form.value, {"organizador_id":currentUser.id})
-    console.log(this.item)
     this.http.post<festaModel>(`${environment.api}/festas`, this.item).pipe(
       switchMap(res => {
         const httpOptions = {
           headers: new HttpHeaders({
             'Intercept': 'false',
-            "festa_id": String(res.id),
           })
         }
         let formData = new FormData();
         formData.set('file', this.photo, this.photo.name);
-        return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta/`,formData, httpOptions)
+        return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta/${res.id}`,formData, httpOptions)
       })
     ).subscribe(res => {
       console.log(res)
@@ -72,7 +70,6 @@ fotoFesta: fotoModel
   }
 
   onUpload(event) {
-    console.log("Entrou")
     for(let file of event.files) {
         this.uploadedFiles.push(file);
       }

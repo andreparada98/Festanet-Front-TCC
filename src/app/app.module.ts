@@ -18,6 +18,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateAccountModule } from './create-account/create-account.module';
 import { JwtInterceptor } from 'src/helpers/jwt.interceptor';
 import { HeaderService } from './header/header.service';
+import { ViewEventoModule } from './view-evento/view-evento.module';
+import { ViewIngressoModule } from './view-ingresso/view-ingresso.module';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { HeaderService } from './header/header.service';
     InputTextModule,
     InputNumberModule,
     HttpClientModule,
-    CreateAccountModule
+    CreateAccountModule,
+    ViewEventoModule,
+    ViewIngressoModule
   ],
   providers: [HeaderService,
     {

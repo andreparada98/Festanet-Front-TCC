@@ -1,14 +1,14 @@
 <div class="container">
     <div class="flexbox" *ngFor="let festa of festas">
-        <p-card class="card" header="{{festa.nome_festa}}" subheader="{{festa.data_festa}}" [style]="{width: '360px'}"
+        <p-card class="card" subheader="{{festa.data_festa | date : 'dd/MM/yyyy'}}" [style]="{width: '360px'}"
             styleClass="p-card-shadow">
+            <ng-template pTemplate="title" class="link">
+                <a (click)="handleReadMore(festa.id)" class="link">{{festa.description}}</a> 
+            </ng-template>
             <ng-template pTemplate="header">
                 <img alt="Card" src="assets/la_rosalia.png">
             </ng-template>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
-                numquam deserunt
-                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-                neque quas!</p>
+            <p>{{festa.description}}</p>
             <ng-template pTemplate="footer">
                 <div class="footer">
                     <img src="../../assets/foto_do_cara.png" alt="user__image" class="user__image">

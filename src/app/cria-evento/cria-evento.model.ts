@@ -2,7 +2,8 @@ export class festaModel{
    id:   number;
    nome_festa: string;
    data_festa: Date;
-   organizador: string;
+   organizador_id: number;
    qtd_ingressos: number;
-   description: string
+   description: string;
+   urlPhoto: string
 }

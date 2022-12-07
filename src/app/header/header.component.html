@@ -3,7 +3,7 @@
     <div class="menus">
       <p-button label="Crie seu Evento" styleClass="p-button-link" (click)="goTo('cria-evento')"></p-button>
       <p-button label="Crie sua Conta" styleClass="p-button-link" (click)="goTo('criar-conta')"></p-button>
-      <p-button label="Visualizar Ingressos" styleClass="p-button-link"></p-button>
+      <p-button label="Visualizar Ingressos" styleClass="p-button-link" (click)="goTo('view-ingresso')"></p-button>
     </div>
   <div class="Login" *ngIf="!usuarioLogado" >
     <button pButton type="button" label="Login" icon="pi pi-user" (click)="goTo('login')"></button>

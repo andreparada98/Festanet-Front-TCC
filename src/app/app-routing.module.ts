@@ -5,6 +5,8 @@ import { rotas } from 'src/utils/routes';
 import { CriaEventoComponent } from './cria-evento/cria-evento.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { ViewEventoComponent } from './view-evento/view-evento.component';
+import { ViewIngressoComponent } from './view-ingresso/view-ingresso.component';
 
 const routes: Routes = [{
   path:rotas.home, component: HomePageComponent
@@ -17,6 +19,12 @@ const routes: Routes = [{
 },
 {
   path: rotas.criarConta, component: CreateAccountComponent
+},
+{
+  path: rotas.visualizarEvento, component: ViewEventoComponent
+},
+{
+  path: rotas.visualizarIngresso, component: ViewIngressoComponent
 },
 ];
 

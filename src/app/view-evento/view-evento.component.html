@@ -1,0 +1,24 @@
+<button pButton label="Voltar" icon="pi pi-arrow-left" (click)="voltar()" class="alignButton"></button>
+<div class="container">
+    <p-card class="item">
+        <ng-template pTemplate="title" class="link">
+            <a (click)="handleReadMore(festa.id)" class="link">{{festa.description}}</a> 
+        </ng-template>
+        <ng-template pTemplate="header" class="header" style="display: flex; justify-content: center; align-items: center;">
+            <img alt="Card" src="assets/la_rosalia.png" class="foto">
+        </ng-template>
+        <p>{{festa.description}}</p>
+        <ng-template pTemplate="footer">
+            <div class="footer">
+                <img src="../../assets/foto_do_cara.png" alt="user__image" class="user__image">
+                <div class="user__info">
+                    <h5>André Parada</h5>
+                </div>
+            </div>
+            <div class="footerComprar">
+                <button pButton pRipple type="button" label="Comprar" class="p-button-success"></button>
+                <button pButton pRipple type="button" label="Voltar" class="p-button-danger" (click)="voltar()"></button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
