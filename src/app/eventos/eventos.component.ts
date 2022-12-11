@@ -49,11 +49,10 @@ export class EventosComponent implements OnInit {
       })
     } else {
     this.festas = this.festas.filter(partys => {
-      if(partys.nome_festa.match(name.toLowerCase())){
+      if(partys.nome_festa.toLowerCase().match(name.toLowerCase())){
         return partys
       }
     })
     }
-  }
-  
+  }  
 }

@@ -22,7 +22,7 @@
             </div>
             <div class="espacamentoInputs">
                 <span class="p-float-label">
-                    <p-calendar id="float-input" formControlName="data_festa" [showIcon]="true" inputId="icon">
+                    <p-calendar id="float-input" formControlName="data_festa" [showIcon]="true" inputId="icon" [readonlyInput]="true" [minDate]="minDateValue">
                     </p-calendar>
                     <label for="float-input">Data</label>
                 </span>

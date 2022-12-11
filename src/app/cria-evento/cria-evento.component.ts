@@ -20,7 +20,7 @@ photo: any;
 uploadedFiles: any[] = [];
 apiUrl = environment.api
 fotoFesta: fotoModel
-
+minDateValue: any
 
   constructor(
     private router: Router,
@@ -29,6 +29,7 @@ fotoFesta: fotoModel
   ) {
     this.item = new festaModel()
     this.fotoFesta = new fotoModel()
+    this.minDateValue = new Date()
    }
 
   ngOnInit(): void {
@@ -61,7 +62,7 @@ fotoFesta: fotoModel
         return this.http.post<fotoModel>(`${environment.api}/festas/uploadPhotoFesta/${res.id}`,formData, httpOptions)
       })
     ).subscribe(res => {
-      console.log(res)
+      this.router.navigate([''])
     })
   }
 
