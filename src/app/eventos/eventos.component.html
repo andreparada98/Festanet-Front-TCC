@@ -1,17 +1,19 @@
-<div class="p-inputgroup teste">
-    <input type="text" pInputText placeholder="Filte uma Festa" #filterWord>
-    <p-button label="Pesquisar" (click)="partyFilter(filterWord.value)"></p-button>
-</div>
+<div class="testeteste">
 
-<div class="container">
-    <div class="flexbox" *ngFor="let festa of festas">
-        <p-card class="card" subheader="{{festa.data_festa | date : 'dd/MM/yyyy'}}" [style]="{width: '360px'}"
+    <div class="p-inputgroup teste">
+        <input type="text" pInputText placeholder="Filte uma Festa" #filterWord>
+        <p-button label="Pesquisar" (click)="partyFilter(filterWord.value)"></p-button>
+    </div>
+    
+    <div class="container">
+        <div class="flexbox" *ngFor="let festa of festas">
+            <p-card class="card" subheader="{{festa.data_festa | date : 'dd/MM/yyyy'}}" [style]="{width: '360px'}"
             styleClass="p-card-shadow">
             <ng-template pTemplate="title" class="link">
-                <a (click)="handleReadMore(festa.id)" class="link">{{festa.description}}</a>
+                <a (click)="handleReadMore(festa.id)" class="link" style="cursor: pointer;">{{festa.nome_festa}}</a>
             </ng-template>
             <ng-template pTemplate="header">
-                <img alt="Card" src={{festa.photoUrl}}>
+                <img alt="Card" src={{festa.photoUrl}} class="photoUrl">
             </ng-template>
             <p>{{festa.description}}</p>
             <ng-template pTemplate="footer">
@@ -24,4 +26,5 @@
             </ng-template>
         </p-card>
     </div>
+</div>
 </div>

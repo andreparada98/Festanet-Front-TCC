@@ -28,8 +28,18 @@
   }
 
   .teste {
-    padding-left: 5rem;
     padding-top: 1rem;
-    max-width: 80vw;
+    max-width: 50vw;
     max-height: 3rem;
+  }
+
+  .testeteste{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photoUrl{
+    max-height: 160px;
   }

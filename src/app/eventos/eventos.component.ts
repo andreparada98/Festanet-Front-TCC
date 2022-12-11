@@ -39,12 +39,21 @@ export class EventosComponent implements OnInit {
   }
 
   partyFilter(name: string) {
+    if(name == ''){
+      this.http.get<any>(`${environment.api}/festas`).subscribe(res => {
+        this.festas = res.map((festa) => ({
+          ...festa,
+           photoUrl: `${environment.api}/festas/downloadPhotoFesta/${festa.id}`
+        })
+        )
+      })
+    } else {
     this.festas = this.festas.filter(partys => {
       if(partys.nome_festa.match(name.toLowerCase())){
         return partys
       }
     })
-    
+    }
   }
   
 }
