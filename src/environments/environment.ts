@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://backend-tcc.imobiliariawf.com.br'
+  api: 'http://localhost:3000'
 };
 
 /*

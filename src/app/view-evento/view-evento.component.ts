@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { ViewEventoService } from './view-evento.service';
 
 @Component({
@@ -18,8 +19,12 @@ export class ViewEventoComponent implements OnInit {
 
   ngOnInit(): void {
     this.viewEventoService.openFesta().subscribe(dados => {
-      this.festa = dados
+      this.festa = Object.assign(
+        dados,
+        {photoUrl: `${environment.api}/festas/downloadPhotoFesta/${dados.id}`}
+        )
     })
+    
   }
 
   voltar(){

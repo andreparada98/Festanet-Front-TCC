@@ -14,8 +14,9 @@ import { ViewEventoService } from '../view-evento/view-evento.service';
 export class EventosComponent implements OnInit {
 
   apiUrl: string = 'http://localhost:3000'
-  festas: festaModel
-  festaId
+  festas: festaModel[]
+  photo_festa: any;
+  festaId: [] = []
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -24,13 +25,26 @@ export class EventosComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<any>(`${environment.api}/festas`).subscribe(res => {
-      this.festas = res
+      this.festas = res.map((festa) => ({
+        ...festa,
+         photoUrl: `${environment.api}/festas/downloadPhotoFesta/${festa.id}`
+      })
+      )
     })
   }
 
   handleReadMore(link: string) {
     this.viewEvento.festId = parseInt(link, 10)
    this.router.navigate(['view-evento'])
+  }
+
+  partyFilter(name: string) {
+    this.festas = this.festas.filter(partys => {
+      if(partys.nome_festa.match(name.toLowerCase())){
+        return partys
+      }
+    })
+    
   }
   
 }

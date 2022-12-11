@@ -1,11 +1,11 @@
 <button pButton label="Voltar" icon="pi pi-arrow-left" (click)="voltar()" class="alignButton"></button>
-<div class="container">
+<div class="container" *ngIf="festa">
     <p-card class="item">
         <ng-template pTemplate="title" class="link">
             <a (click)="handleReadMore(festa.id)" class="link">{{festa.description}}</a> 
         </ng-template>
         <ng-template pTemplate="header" class="header" style="display: flex; justify-content: center; align-items: center;">
-            <img alt="Card" src="assets/la_rosalia.png" class="foto">
+            <img alt="Card" src="{{festa.photoUrl}}" class="foto">
         </ng-template>
         <p>{{festa.description}}</p>
         <ng-template pTemplate="footer">
@@ -21,4 +21,12 @@
             </div>
         </ng-template>
     </p-card>
+</div>
+
+<div class="teste" *ngIf="!festa">
+    <div class="container">
+        <p-card>
+            <button pButton label="Voltar" icon="pi pi-arrow-left" (click)="voltar()"   ></button>
+        </p-card>
+    </div>
 </div>
