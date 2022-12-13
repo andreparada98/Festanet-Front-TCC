@@ -16,4 +16,10 @@ export class ViewEventoService {
   openFesta(){
     return this.http.get<any>(`${environment.api}/festas/${parseInt(this.festId)}`)
   }
+
+  async comprarIngresso(festaId){
+    const body = Object.assign({"festa_id": festaId})
+    return await this.http.post<any>(`${environment.api}/ingresso`, body)
+  }
+  
 }

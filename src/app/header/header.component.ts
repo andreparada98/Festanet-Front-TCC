@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  usuarioLogado = false;
+  usuarioLogado;
 
   constructor(
     private router: Router
@@ -37,6 +37,5 @@ export class HeaderComponent {
     localStorage.removeItem('user');
     this.usuarioLogado = false
     this.router.navigate([''])
-
   }
 }

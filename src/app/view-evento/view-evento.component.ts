@@ -15,8 +15,9 @@ export class ViewEventoComponent implements OnInit {
   constructor(
     private viewEventoService: ViewEventoService,
     private router: Router
-  ) { }
-
+  ) { 
+  }
+  
   ngOnInit(): void {
     this.viewEventoService.openFesta().subscribe(dados => {
       this.festa = Object.assign(
@@ -29,6 +30,19 @@ export class ViewEventoComponent implements OnInit {
 
   voltar(){
     this.router.navigate([''])
+  }
+
+  comprar(){
+    const currentUser = JSON.parse(localStorage.getItem('user'))
+    if(currentUser && currentUser.token){
+      const callBackUrl = this.viewEventoService.comprarIngresso(this.festa.id)
+      if(callBackUrl){
+        window.open('http://google.com')
+      }
+    }
+    else {
+      this.router.navigate(['/login'])
+    }
   }
 
 }
